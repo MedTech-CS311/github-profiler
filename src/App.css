@@ -6,3 +6,30 @@
 .profile-container {
   width: 25%;
 }
+
+
+/* PROFILE */
+
+.profile-content-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-avatar {
+  width: 50%;
+  height: auto;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-name, .profile-avatar {
+  align-self: center;
+}
+
+.profile-name {
+  text-align: center;
+}
+
+.profile-login {
+  font-weight: 300;
+}

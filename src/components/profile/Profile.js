@@ -29,13 +29,21 @@ export default class Profile extends React.Component {
         return (
             <Card>
                 <CardContent>
-                    <img src={this.state.profile.avatar_url} alt="avatar" />
-                    <h3 onClick={this.handleNavigateToProfile}>{this.state.profile.name}</h3>
-                    <p>{this.state.profile.bio}</p>
-                    { this.state.profile.email && <p>Email: {this.state.profile.email}</p>}
-                    <p>Location: {this.state.profile.location}</p>
-                    <p>Company: {this.state.profile.company}</p>
-                    <p>Followers: {this.state.profile.followers}</p>
+                    <div className="profile-content-container">
+                        <img src={this.state.profile.avatar_url} alt="avatar" className="profile-avatar"/>
+                        <h3 onClick={this.handleNavigateToProfile} className="profile-name">
+                            {this.state.profile.name} <br/>
+                            <span className="profile-login">
+                                @{this.state.profile.login}
+                            </span>
+                        </h3>
+                        <p></p>
+                        <p>{this.state.profile.bio}</p>
+                        { this.state.profile.email && <p>Email: {this.state.profile.email}</p>}
+                        <p>Location: {this.state.profile.location}</p>
+                        <p>Company: {this.state.profile.company}</p>
+                        <p>Followers: {this.state.profile.followers}</p>
+                    </div>
                 </CardContent>
             </Card>
         )
