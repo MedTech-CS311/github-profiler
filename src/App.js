@@ -16,6 +16,9 @@ function App() {
         <div className="profile-container">
           <Profile />
         </div>
+        <div className="repositories-container">
+          <RepositoriesList />
+        </div>
       </div>
     </div>
   );
