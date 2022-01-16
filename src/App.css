@@ -7,6 +7,27 @@
   width: 25%;
 }
 
+/* NAVBAR */
+
+.navbar {
+  background-color: rgba(0, 0,0, .8);
+  padding: 10px;
+  height: 60px;
+}
+
+.navbar-logo-container {
+  padding: 5px;
+}
+
+.navbar-logo-img {
+  width: 55px;
+  height: 55px;
+  opacity: .6;
+}
+
+.navbar-logo-img:hover {
+  opacity: 1;
+}
 
 /* PROFILE */
 
@@ -16,8 +37,9 @@
 }
 
 .profile-avatar {
-  width: 50%;
+  width: 70%;
   height: auto;
+  border: 10px solid rgba(0, 0,0, .3);
   border-radius: 50%;
   object-fit: cover;
 }
