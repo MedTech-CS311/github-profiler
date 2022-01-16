@@ -1,4 +1,3 @@
-import { Badge } from "@mui/material";
 import React from "react";
 
 export default class SingleRepository extends React.Component {
@@ -14,6 +13,10 @@ export default class SingleRepository extends React.Component {
         this.setState({repo: this.props.repo})
     }
 
+    handleNavigateToRepository = () => {
+        window.open(this.props.repo.html_url, '_blank');
+    }
+
     render() {
         return (
             <div>
@@ -21,13 +24,9 @@ export default class SingleRepository extends React.Component {
                     (
                         <div className="single-repository-content">
                             <div className="single-repository-header">
-                                <h4 className="single-repository-name">{this.state.repo.name}</h4>
+                                <h4 onClick={this.handleNavigateToRepository} className="single-repository-name">{this.state.repo.name}</h4>
                                 <div>
-                                    <span 
-                                        variant="outline"
-                                        color="primary"
-                                        class="single-repository-visibility-badge"
-                                    >
+                                    <span class="single-repository-visibility-badge">
                                         {this.state.repo.visibility}
                                     </span>
                                 </div>
@@ -52,7 +51,6 @@ export default class SingleRepository extends React.Component {
                                     </svg>
                                     <span>{this.state.repo.forks}</span>
                                 </div>
-                                
                             </div>
                         </div>
                         

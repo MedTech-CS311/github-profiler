@@ -49,10 +49,10 @@ export default class RepositoriesList extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="repositories-container">
                 <h2 className="repositories-header">Popular Repositories:</h2>
                 {this.state.repos &&
-                    <div className="repositories-container">
+                    <div className="repositories-list-container">
                     {
                         this.state.repos.map((repo, index) => (
                             <div className="single-repository-container" key={index}>

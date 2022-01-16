@@ -89,12 +89,16 @@
   font-weight: 300;
 }
 
-.repositories-container {
+.repositories-list-container {
   width: 95%;
   display: flex;
   justify-content: space-between;
   row-gap: 20px;
   flex-wrap: wrap;
+}
+
+.repositories-container {
+  width: 95%;
   padding: 0 10px;
 }
 
@@ -117,13 +121,19 @@
 
 .single-repository-name {
   color:royalblue;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.single-repository-name:hover {
+  text-decoration: underline;
 }
 
 .single-repository-visibility-badge {
   border: 1px solid rgba(0, 0,0, .3);
   background-color: transparent;
   border-radius: 15px;
-  padding: 3px 10px;
+  padding: 4px 10px 7px 10px;
   align-items: center;
 }
 
