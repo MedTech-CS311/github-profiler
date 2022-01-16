@@ -20,7 +20,7 @@ export default class RepositoriesList extends React.Component {
     }
 
     fetchRepos = () => {
-        this.setState({ repos:  "loading" })
+        this.setState({ repos: "loading" })
         axios.get("https://api.github.com/user/repos", {
             params: this.state.filters
         })
@@ -29,6 +29,7 @@ export default class RepositoriesList extends React.Component {
         })
         .catch((error) => {
             console.log(error)
+            this.setState({ repos: [] })
         })
     }
 
