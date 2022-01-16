@@ -20,7 +20,7 @@ export default class RepositoriesList extends React.Component {
     }
 
     fetchRepos = () => {
-        this.setState({ repos:  [] })
+        this.setState({ repos:  "loading" })
         axios.get("https://api.github.com/user/repos", {
             params: this.state.filters
         })
@@ -53,39 +53,51 @@ export default class RepositoriesList extends React.Component {
             <div className="repositories-container">
                 <h2 className="repositories-header">Popular Repositories:</h2>
 
-                    {this.state.repos.length === 0 ?
+                    {this.state.repos === "loading" ?
+
                         (
                             <div className="repositories-list-container">
-                                <span>No repositories ...</span>
+                                <span>Loading ...</span>
                             </div>
                         )
-                            :
+
+                    :
+
                         (
-                            <div className="repositories-list-container">
-                                {
-                                    this.state.repos.map((repo, index) => (
-                                        <div className="single-repository-container" key={index}>
-                                            <SingleRepository repo={repo} />
+                            this.state.repos.length === 0 ?
+                                (
+                                    <div className="repositories-list-container">
+                                        <span>No repositories ...</span>
+                                    </div> 
+                                ) 
+                            :
+                                (
+                                    <div className="repositories-list-container">
+                                        {
+                                            this.state.repos.map((repo, index) => (
+                                                <div className="single-repository-container" key={index}>
+                                                    <SingleRepository repo={repo} />
+                                                </div>
+                                            ))
+                                        }
+                                    
+                                        <div className="repositoies-list-navigation-buttons-container">
+                                            <button 
+                                            onClick={this.handlePrevPage}
+                                            className="repositoies-list-navigation-button"
+                                            disabled={this.state.filters.page === 1}
+                                            >
+                                                {"<"}
+                                            </button>
+                                            <button 
+                                            onClick={this.handleNextPage}
+                                            className="repositoies-list-navigation-button"
+                                            >
+                                                {">"}
+                                            </button>
                                         </div>
-                                    ))
-                                }
-                            
-                                <div className="repositoies-list-navigation-buttons-container">
-                                    <button 
-                                    onClick={this.handlePrevPage}
-                                    className="repositoies-list-navigation-button"
-                                    disabled={this.state.filters.page === 1}
-                                    >
-                                        {"<"}
-                                    </button>
-                                    <button 
-                                    onClick={this.handleNextPage}
-                                    className="repositoies-list-navigation-button"
-                                    >
-                                        {">"}
-                                    </button>
-                                </div>
-                            </div>
+                                    </div>
+                                )
                         )
                     }   
             </div>
