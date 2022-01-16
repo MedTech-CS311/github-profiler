@@ -64,11 +64,17 @@
   margin: 15px 0;
 }
 
-.profile-info-item {
+.profile-social-items {
+  display: flex;
+  align-content: center;
+  gap: 7px;
+}
+
+.profile-info-item, .profile-social-item {
   margin: 8px 0;
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 10px;
 }
 
 .profile-info-icon {
