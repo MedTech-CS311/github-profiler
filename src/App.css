@@ -34,6 +34,7 @@
 .profile-content-container {
   display: flex;
   flex-direction: column;
+  padding: 10px;
 }
 
 .profile-avatar {
@@ -86,4 +87,42 @@
 
 .repositories-header {
   font-weight: 300;
+}
+
+.repositories-container {
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  row-gap: 20px;
+  flex-wrap: wrap;
+  padding: 0 10px;
+}
+
+.single-repository-container {
+  border:solid 1px rgba(0, 0,0, .3);
+  border-radius: 10px;
+  width: 49%;
+}
+
+.single-repository-content {
+  padding: 10px 5px 5px 5px;
+}
+
+.single-repository-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.single-repository-name {
+  color:royalblue;
+}
+
+.single-repository-visibility-badge {
+  border: 1px solid rgba(0, 0,0, .3);
+  background-color: transparent;
+  border-radius: 15px;
+  padding: 3px 10px;
+  align-items: center;
 }

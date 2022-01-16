@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { Badge } from "@mui/material";
+import SingleRepository from "./SingleRepository";
 
 export default class RepositoriesList extends React.Component {
     constructor() {
@@ -20,12 +20,11 @@ export default class RepositoriesList extends React.Component {
     }
 
     fetchRepos = () => {
-        console.log(this.state.page)
         axios.get("https://api.github.com/user/repos", {
             params: this.state.filters
         })
         .then((response) => {
-            this.setState({repos: [...this.state.repos, response.data]})
+            this.setState({repos: response.data})
         })
         .catch((error) => {
             console.log(error)
@@ -52,13 +51,17 @@ export default class RepositoriesList extends React.Component {
         return (
             <div>
                 <h2 className="repositories-header">Popular Repositories:</h2>
-                <div className="repositories-container">
-                {/* {
-                    this.state.repos.map((repo, index) => (
-                        <SingleRepository repo={repo} key={index} className="single-repository-container" />
-                    ))
-                } */}
-                </div>
+                {this.state.repos &&
+                    <div className="repositories-container">
+                    {
+                        this.state.repos.map((repo, index) => (
+                            <div className="single-repository-container" key={index}>
+                                <SingleRepository repo={repo} />
+                            </div>
+                        ))
+                    }
+                    </div>
+                }
                 
                 <button onClick={this.handlePrevPage}>prev page</button>
                 <button onClick={this.handleNextPage}>next page</button>
