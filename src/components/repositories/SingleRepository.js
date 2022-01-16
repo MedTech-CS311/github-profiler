@@ -10,7 +10,7 @@ export default class SingleRepository extends React.Component {
     }
 
     componentDidMount() {
-        this.setState({repo: this.props.repo})
+        this.setState({ repo: this.props.repo })
     }
 
     handleNavigateToRepository = () => {

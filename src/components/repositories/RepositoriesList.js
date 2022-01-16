@@ -60,11 +60,24 @@ export default class RepositoriesList extends React.Component {
                             </div>
                         ))
                     }
+                        
+                        <div className="repositoies-list-navigation-buttons-container">
+                            <button 
+                              onClick={this.handlePrevPage}
+                              className="repositoies-list-navigation-button"
+                            >
+                                {"<"}
+                            </button>
+                            <button 
+                              onClick={this.handleNextPage}
+                              className="repositoies-list-navigation-button"
+                            >
+                                {">"}
+                            </button>
+                        </div>
                     </div>
                 }
                 
-                <button onClick={this.handlePrevPage}>prev page</button>
-                <button onClick={this.handleNextPage}>next page</button>
             </div>
         )
     }

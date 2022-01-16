@@ -131,6 +131,7 @@
 
 .single-repository-visibility-badge {
   border: 1px solid rgba(0, 0,0, .3);
+  color: rgba(0, 0,0, .6);
   background-color: transparent;
   border-radius: 15px;
   padding: 4px 10px 7px 10px;
@@ -155,4 +156,34 @@
   display: flex;
   align-items: center;
   gap: 5px;
+}
+
+/* Repositories list navigation buttons */
+
+.repositoies-list-navigation-buttons-container {
+  width: 100%;
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.repositoies-list-navigation-button {
+  text-align: center;
+  color: rgba(0, 0,0, .3);
+  border: 1px solid rgba(0, 0,0, .3);
+  background-color: white;
+  border-radius: 3px;
+  width: 30px;
+  height: 40px;
+  font-size: 20px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.repositoies-list-navigation-button:hover {
+  background-color: rgba(0, 0,0, .1);
+  transition: .3s;
 }
