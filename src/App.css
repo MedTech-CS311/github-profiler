@@ -4,7 +4,7 @@
 }
 
 .profile-container {
-  width: 25%;
+  width: 20%;
 }
 
 /* NAVBAR */
@@ -39,7 +39,7 @@
 .profile-avatar {
   width: 70%;
   height: auto;
-  border: 10px solid rgba(0, 0,0, .3);
+  border: 7px solid rgba(0, 0,0, .3);
   border-radius: 50%;
   object-fit: cover;
 }
@@ -54,4 +54,24 @@
 
 .profile-login {
   font-weight: 300;
+}
+
+.profile-info {
+  padding: 10px;
+}
+
+.profile-info-items {
+  margin: 15px 0;
+}
+
+.profile-info-item {
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.profile-info-icon {
+  width: 15px;
+  height: auto;
 }
