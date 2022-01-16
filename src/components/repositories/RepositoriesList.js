@@ -35,7 +35,7 @@ export default class RepositoriesList extends React.Component {
 
     handleNextPage = () => {
         this.setState({
-            filters: { ... this.state.filters, page: this.state.filters.page + 1}
+            filters: { ...this.state.filters, page: this.state.filters.page + 1}
         }, () => {
             this.fetchRepos();
         })
@@ -43,7 +43,7 @@ export default class RepositoriesList extends React.Component {
 
     handlePrevPage = () => {
         this.setState({
-            filters: { ... this.state.filters, page: this.state.filters.page - 1}
+            filters: { ...this.state.filters, page: this.state.filters.page - 1}
         }, () => {
             this.fetchRepos();
         })

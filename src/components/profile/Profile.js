@@ -63,7 +63,7 @@ export default class Profile extends React.Component {
                         {this.state.profile.email &&
                             (
                                 <span className="profile-info-item">
-                                    <img src={email} className="profile-info-icon" />
+                                    <img src={email} className="profile-info-icon" alt="email"/>
                                     <span>{this.state.profile.email}</span>
                                 </span>
                             )
