@@ -1,60 +1,56 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import axios from "axios";
 import SingleRepository from "./SingleRepository";
 
-export default class RepositoriesList extends React.Component {
-    constructor() {
-        super()
-        this.state = {
-            filters: {
-                page: 1,
-                per_page: 10,
-                visibility: "public"
-            },
-            repos: []
-        }
-    }
+const RepositoriesList = () => {
+    const [filters,setFilters] = useState({
+        page: 1,
+        per_page: 10,
+        visibility: "public"
+    }) 
+    const [repos,setRepos] = useState([])
 
-    componentDidMount() {
-        this.fetchRepos();
-    }
-
-    fetchRepos = () => {
-        this.setState({ repos: "loading" })
+    
+    const fetchRepos = () => {
+        setRepos("loading")
         axios.get("https://api.github.com/user/repos", {
-            params: this.state.filters
+            params: filters
         })
         .then((response) => {
-            this.setState({ repos: response.data })
+           setRepos(response.data)
         })
         .catch((error) => {
             console.log(error)
-            this.setState({ repos: [] })
+            setRepos([])
         })
     }
 
-    handleNextPage = () => {
-        this.setState({
-            filters: { ...this.state.filters, page: this.state.filters.page + 1}
-        }, () => {
-            this.fetchRepos();
-        })
+    useEffect(() => {
+        fetchRepos();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[filters])
+    
+    const handleNextPage = () => {
+        setFilters((prev)=>({
+            ...prev,
+            page : filters.page + 1
+        }))
+        
     }
 
-    handlePrevPage = () => {
-        this.setState({
-            filters: { ...this.state.filters, page: this.state.filters.page - 1}
-        }, () => {
-            this.fetchRepos();
-        })
+    const handlePrevPage = () => {
+        setFilters( (prev) => ({
+            ...prev,
+            page : filters.page - 1
+        }))
     }
 
-    render() {
-        return (
-            <div className="repositories-container">
+
+    return (
+        <div className="repositories-container">
                 <h2 className="repositories-header">Popular Repositories:</h2>
 
-                    {this.state.repos === "loading" ?
+                    {repos === "loading" ?
 
                         (
                             <div className="repositories-list-container">
@@ -65,7 +61,7 @@ export default class RepositoriesList extends React.Component {
                     :
 
                         (
-                            this.state.repos.length === 0 ?
+                            repos.length === 0 ?
                                 (
                                     <div className="repositories-list-container">
                                         <span>No repositories ...</span>
@@ -75,7 +71,7 @@ export default class RepositoriesList extends React.Component {
                                 (
                                     <div className="repositories-list-container">
                                         {
-                                            this.state.repos.map((repo, index) => (
+                                            repos.map((repo, index) => (
                                                 <div className="single-repository-container" key={index}>
                                                     <SingleRepository repo={repo} />
                                                 </div>
@@ -84,14 +80,14 @@ export default class RepositoriesList extends React.Component {
                                     
                                         <div className="repositoies-list-navigation-buttons-container">
                                             <button 
-                                            onClick={this.handlePrevPage}
+                                            onClick={handlePrevPage}
                                             className="repositoies-list-navigation-button"
-                                            disabled={this.state.filters.page === 1}
+                                            disabled={filters.page === 1}
                                             >
                                                 {"<"}
                                             </button>
                                             <button 
-                                            onClick={this.handleNextPage}
+                                            onClick={handleNextPage}
                                             className="repositoies-list-navigation-button"
                                             >
                                                 {">"}
@@ -102,6 +98,7 @@ export default class RepositoriesList extends React.Component {
                         )
                     }   
             </div>
-        )
-    }
+    )
 }
+
+export default RepositoriesList
