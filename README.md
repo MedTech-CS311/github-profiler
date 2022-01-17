@@ -16,6 +16,12 @@ This project is sending 2 requests to Github API:
 - **GET** `/user/repos` to get the user repos
 ## Start the project
 
+Fork the repository from Github and clone it locally using: 
+
+```
+$ git clone link_to_your_repository
+```
+
 - [ ] Install the dependencies and start the project
 ```
 $ npm install
@@ -34,8 +40,17 @@ To add your token, you should:
 ## Your job
 
 We want to migrate this project to use [React Hooks](https://reactjs.org/docs/hooks-intro.html) in Functional Components to be more scalable in the future.
+
+You should start doing your work in a seperate branch to not mess the existing code. Go ahead and create a new branch following this command:
+
+```
+$ git checkout -b hooks
+```
+
 Go ahead and enjoy refactoring the project to use Hooks following these steps:
 
 - [ ] Substitute the Class components with Functional components
 - [ ] Refactor the state variables using `useState` hook
 - [ ] Refactor the lifecycle methods using `useEffect` hook 
+
+After finishing, don't forget to push your changes and make a Pull Request
