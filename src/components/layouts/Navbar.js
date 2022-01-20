@@ -1,10 +1,9 @@
 import React from "react";
 
 import logo from "../../assets/img/logo.svg";
+function Navbar () {
 
-export default class Navbar extends React.Component {
-
-    render() {
+    
         return (
             <div className="navbar">
                 <div className="navbar-logo-container">
@@ -12,6 +11,8 @@ export default class Navbar extends React.Component {
                 </div>
             </div>
         )
-    }
+    
 
 } 
+
+export default Navbar;
