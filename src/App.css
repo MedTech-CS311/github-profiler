@@ -1,6 +1,40 @@
 .app-container {
   display: flex;
-  padding: 3em;
+  padding: 3em;}
+.myNav {
+    display: flex;
+    background-color: rgba(0, 0,0, .8);
+    padding: 10px;
+    height: 60px;
+    align-self: stretch;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+/* Remove bullets, margin and padding */
+.myNav ul {
+  list-style: none;
+  padding: 5px;
+  margin: 0;
+  font-weight: bold;
+  font-size: larger;
+}
+.myNav li {
+  float: left;
+  /* Or you can use display: inline; */
+}
+/* Define the block styling for the links */
+.myNav li a {
+  display: inline-block;
+  text-align: center;
+  padding: 10px;
+  color: azure;
+}
+.myNav li a :hover {
+  opacity: 1;
+}
+/* This is optional, however if you want to display the active link differently apply a background to it */
+.myNav li a.active {
+  background-color: white;
 }
 
 .profile-container {
@@ -9,11 +43,7 @@
 
 /* NAVBAR */
 
-.navbar {
-  background-color: rgba(0, 0,0, .8);
-  padding: 10px;
-  height: 60px;
-}
+
 
 .navbar-logo-container {
   padding: 5px;
