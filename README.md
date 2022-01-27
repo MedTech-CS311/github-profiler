@@ -98,7 +98,7 @@ $ npm i --save @reduxjs/toolkit react-redux
 
 - [ ] As we did with repositories, create a new Components called `OrganisationsList` and `SingleOrganisation` inside the directory `/components/organisations` to render organisations in a similar layout to that on Github.
 
-![organisations-layout](https://github.com/MedTech-CS311/github-profiler/blob/hooks/organisations.png?raw=true)
+![organisations-layout](https://github.com/MedTech-CS311/github-profiler/blob/hooks/src/assets/img/onganisations.png?raw=true)
 
 - [ ] Create the slice and the actions needed to fetch user's organisations from Github by using its API.
 
