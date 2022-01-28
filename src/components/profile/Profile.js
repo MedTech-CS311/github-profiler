@@ -17,7 +17,7 @@ function Profile() {
     // axios.get(`https://api.github.com/user`).then((response) => {
     //   setProfile(response.data);
     // });
-  });
+  }, []);
 
   const handleNavigateToProfile = () => {
     window.location = Profile.html_url;
