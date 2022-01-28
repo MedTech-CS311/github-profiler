@@ -1,5 +1,4 @@
 import "./App.css";
-import reducer from './store/reducers/index'
 
 // Components
 import RepositoriesList from "./components/repositories/RepositoriesList";
