@@ -1,4 +1,4 @@
-import { combineReducers, createStore } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import profileReducer from "./profile/profile.reducer";
 
 // Creating the root reducer by combining the reducers
@@ -7,6 +7,6 @@ const rootReducer = combineReducers({
 });
 
 // Creating the store with the root reducer
-const store = createStore(rootReducer);
+const store = configureStore({ reducer: rootReducer });
 
 export default store;

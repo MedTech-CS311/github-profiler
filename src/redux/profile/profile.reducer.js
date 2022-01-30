@@ -10,6 +10,7 @@ const profileSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
+    // Handling the success case of the action
     builder.addCase(fetchUserData.fulfilled, (state, action) => {
       state.userData = action.payload;
     });
