@@ -4,7 +4,11 @@ import axios from "axios";
 export const fetchUserData = createAsyncThunk(
   "profile/fetchUserData",
   async () => {
-    const response = await axios.get(`https://api.github.com/user`);
-    return response.data;
+    try {
+      const response = await axios.get(`https://api.github.com/user`);
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
   }
 );
