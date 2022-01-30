@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useEffect } from "react";
 
 import email from "../../assets/img/email.png";
 import anonymous_avatar from "../../assets/img/anonymous.png";
+import { useSelector } from "react-redux";
 
 function Profile() {
-  const [profile, setProfile] = useState({});
+  const profile = useSelector((state) => state.profile.userData);
 
   useEffect(() => {
-    axios.get(`https://api.github.com/user`).then((response) => {
-      setProfile(response.data);
-    });
+    // axios.get(`https://api.github.com/user`).then((response) => {
+    //   setProfile(response.data);
+    // });
   });
 
   const handleNavigateToProfile = () => {
