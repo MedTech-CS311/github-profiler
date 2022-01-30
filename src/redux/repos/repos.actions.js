@@ -6,7 +6,7 @@ export const fetchUserRepos = createAsyncThunk(
   async (filters) => {
     try {
       const response = await axios.get(`https://api.github.com/user/repos`, {
-        filters,
+        params: filters,
       });
       return response.data;
     } catch (error) {
