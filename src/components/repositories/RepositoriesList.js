@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import SingleRepository from "./SingleRepository";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchUserRepos } from "../../redux/repos/repos.actions";
 
 function RepositoriesList() {
+  const dispatch = useDispatch();
+
   const initialFilters = {
     page: 1,
     per_page: 10,
@@ -10,27 +13,13 @@ function RepositoriesList() {
   };
 
   const [filters, setFilters] = useState(initialFilters);
-  const [repos, setRepos] = useState([]);
+  const reposList = useSelector((state) => state.repos.reposList);
+  const reposListLoading = useSelector((state) => state.repos.loading);
 
   useEffect(() => {
-    fetchRepos();
+    dispatch(fetchUserRepos(filters));
     // eslint-disable-next-line
   }, []);
-
-  const fetchRepos = () => {
-    setRepos("loading");
-    axios
-      .get("https://api.github.com/user/repos", {
-        params: filters,
-      })
-      .then((response) => {
-        setRepos(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-        setRepos([]);
-      });
-  };
 
   const handleNextPage = () => {
     setFilters(
@@ -38,7 +27,7 @@ function RepositoriesList() {
         filters: { ...filters, page: filters.page + 1 },
       },
       () => {
-        fetchRepos();
+        dispatch(fetchUserRepos(filters));
       }
     );
   };
@@ -49,7 +38,7 @@ function RepositoriesList() {
         filters: { ...filters, page: filters.page - 1 },
       },
       () => {
-        fetchRepos();
+        dispatch(fetchUserRepos(filters));
       }
     );
   };
@@ -58,17 +47,17 @@ function RepositoriesList() {
     <div className="repositories-container">
       <h2 className="repositories-header">Popular Repositories:</h2>
 
-      {repos === "loading" ? (
+      {reposListLoading === "loading" ? (
         <div className="repositories-list-container">
           <span>Loading ...</span>
         </div>
-      ) : repos.length === 0 ? (
+      ) : reposList.length === 0 ? (
         <div className="repositories-list-container">
           <span>No repositories ...</span>
         </div>
       ) : (
         <div className="repositories-list-container">
-          {repos.map((repo, index) => (
+          {reposList.map((repo, index) => (
             <div className="single-repository-container" key={index}>
               <SingleRepository repo={repo} />
             </div>
