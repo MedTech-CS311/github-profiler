@@ -3,7 +3,6 @@ import fetchRepos  from "../actions/repos.actions";
 
 const initialState = {
     reposList: [],
-    filters:{page:1,per_page:10,visibility:"public"}
 };
 
 const reposSlice = createSlice({

@@ -1,33 +1,17 @@
 import React, { useEffect, useState } from "react";
-//import axios from "axios";
 import SingleRepository from "./SingleRepository";
 import { useSelector, useDispatch } from "react-redux";
 import fetchRepos from "../../redux/actions/repos.actions";
 
 function RepositoriesList () {
     const [filters, setFilters] = useState({page:1,per_page:10,visibility:"public"})
-    //const [repos,setRepo] = useState([])
-
-    const repos = useSelector((state) => state.repos.reposList )
     const dispatch = useDispatch()
+    const repos = useSelector((state) => state.repos.reposList )
+  
 
     useEffect ( () => {
-       dispatch(fetchRepos)
+       dispatch(fetchRepos())
     }, [])
-
-    /*const fetchRepos = () => {
-        setRepo( "loading" )
-        axios.get("https://api.github.com/user/repos", {
-            params: filters
-        })
-        .then((response) => {
-            setRepo(response.data )
-        })
-        .catch((error) => {
-            console.log(error)
-            setRepo( [] )
-        })
-    }*/
 
     const handleNextPage = () => {
         setFilters({
@@ -78,7 +62,7 @@ function RepositoriesList () {
                                             ))
                                         }
                                     
-                                       {/*<div className="repositoies-list-navigation-buttons-container">
+                                       <div className="repositoies-list-navigation-buttons-container">
                                             <button 
                                             onClick={handlePrevPage}
                                             className="repositoies-list-navigation-button"
@@ -92,7 +76,7 @@ function RepositoriesList () {
                                             >
                                                 {">"}
                                             </button>
-                                    </div>*/}
+                                    </div>
                                     </div>
                                 )
                         )
