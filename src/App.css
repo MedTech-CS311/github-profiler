@@ -1,6 +1,8 @@
 .app-container {
+  background-color: rgba(38, 1, 84, 0.933);
   display: flex;
   padding: 3em;
+  color: rgba(255, 255, 255, 0.775)
 }
 
 .profile-container {
@@ -10,7 +12,7 @@
 /* NAVBAR */
 
 .navbar {
-  background-color: rgba(0, 0,0, .8);
+  background-color: rgb(82, 0, 140);
   padding: 10px;
   height: 60px;
 }
@@ -40,7 +42,7 @@
 .profile-avatar {
   width: 70%;
   height: auto;
-  border: 7px solid rgba(0, 0,0, .3);
+  border: 7px solid rgba(119, 0, 255, 0.72);
   border-radius: 50%;
   object-fit: cover;
 }
@@ -76,6 +78,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  fill :rgb(169, 94, 255)
 }
 
 .profile-info-icon {
@@ -103,10 +106,17 @@
 }
 
 .single-repository-container {
-  border:solid 1px rgba(0, 0,0, .1);
+  border:solid 1px rgba(91, 21, 141, 0.953);
+  background-color: rgb(40, 9, 75);
   border-radius: 10px;
   height: 200px;
   width: 49%;
+}
+
+div .single-repository-container#container:hover  {
+  border-radius: 2.4rem;
+  border:solid 1px rgb(169, 94, 255);
+  transition: .35s;
 }
 
 .single-repository-content {
@@ -120,7 +130,7 @@
 }
 
 .single-repository-name {
-  color:royalblue;
+  color:rgb(169, 94, 255);
   font-size: 20px;
   cursor: pointer;
 }
@@ -130,9 +140,9 @@
 }
 
 .single-repository-visibility-badge {
-  border: 1px solid rgba(0, 0,0, .3);
-  color: rgba(0, 0,0, .6);
-  background-color: transparent;
+  border: 1px solid rgb(169, 94, 255);
+  color: rgb(169, 94, 255);
+  background-color: rgba(52, 36, 94, 0.357);
   border-radius: 15px;
   padding: 4px 10px 7px 10px;
   align-items: center;
@@ -158,6 +168,10 @@
   gap: 5px;
 }
 
+.single-repository-info-item svg {
+  fill: rgb(169, 94, 255);
+}
+
 /* Repositories list navigation buttons */
 
 .repositoies-list-navigation-buttons-container {
@@ -171,9 +185,9 @@
 
 .repositoies-list-navigation-button {
   text-align: center;
-  color: rgba(0, 0,0, .3);
-  border: 1px solid rgba(0, 0,0, .3);
-  background-color: white;
+  color: rgb(169, 94, 255);
+  border: 1px solid rgb(169, 94, 255);
+  background-color: transparent;
   border-radius: 3px;
   width: 30px;
   height: 40px;
@@ -184,6 +198,6 @@
 }
 
 .repositoies-list-navigation-button:hover {
-  background-color: rgba(0, 0,0, .1);
+  background-color: rgba(0, 0, 0, 0.2);
   transition: .3s;
 }
