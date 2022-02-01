@@ -12,7 +12,6 @@ function RepositoriesList() {
   };
 
   const [filters, setFilters] = useState(initialFilters);
-  //const [repos, setRepos] = useState([]);
   const dispatch = useDispatch()
   const reposData = useSelector((state) => state.repos.reposData) ;
 
@@ -22,20 +21,7 @@ function RepositoriesList() {
     // eslint-disable-next-line
   }, []);
 
-  // const fetchRepos = () => {
-  //   setRepos("loading");
-  //   axios
-  //     .get("https://api.github.com/user/repos", {
-  //       params: filters,
-  //     })
-  //     .then((response) => {
-  //       setRepos(response.data);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //       setRepos([]);
-  //     });
-  // };
+  
 
   const handleNextPage = () => {
     setFilters(
@@ -43,7 +29,7 @@ function RepositoriesList() {
         filters: { ...filters, page: filters.page + 1 },
       },
       () => {
-        fetchRepos();
+        dispatch(fetchRepos());
       }
     );
   };
@@ -54,7 +40,7 @@ function RepositoriesList() {
         filters: { ...filters, page: filters.page - 1 },
       },
       () => {
-        fetchRepos();
+        dispatch(fetchRepos());
       }
     );
   };

@@ -7,23 +7,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchProfileData } from "../../store/actions/profile.action"
 
 function Profile() {
-  //const [profile, setProfile] = useState({});
 
   const dispatch = useDispatch()
   const userData = useSelector((state) => state.profile.userData)
 
   useEffect(() => { 
    dispatch(fetchProfileData())
-    // axios.get(`https://api.github.com/user`).then((response) => {
-    //   setProfile(response.data);
-    // });
   }, []);
 
   const handleNavigateToProfile = () => {
     window.location = Profile.html_url;
   };
 
-  
   return (
     <div className="profile-content-container">
       <img
