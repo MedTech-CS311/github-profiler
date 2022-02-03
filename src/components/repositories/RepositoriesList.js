@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import SingleRepository from "./SingleRepository";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchRepos } from "../../store/actions/repos.actions";
 
 function RepositoriesList() {
   const initialFilters = {
@@ -10,27 +12,15 @@ function RepositoriesList() {
   };
 
   const [filters, setFilters] = useState(initialFilters);
-  const [repos, setRepos] = useState([]);
+  const dispatch = useDispatch()
+  const reposData = useSelector((state) => state.repos.reposData) ;
 
   useEffect(() => {
-    fetchRepos();
+    dispatch(fetchRepos());
     // eslint-disable-next-line
   }, []);
 
-  const fetchRepos = () => {
-    setRepos("loading");
-    axios
-      .get("https://api.github.com/user/repos", {
-        params: filters,
-      })
-      .then((response) => {
-        setRepos(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-        setRepos([]);
-      });
-  };
+  
 
   const handleNextPage = () => {
     setFilters(
@@ -38,7 +28,7 @@ function RepositoriesList() {
         filters: { ...filters, page: filters.page + 1 },
       },
       () => {
-        fetchRepos();
+        dispatch(fetchRepos());
       }
     );
   };
@@ -49,7 +39,7 @@ function RepositoriesList() {
         filters: { ...filters, page: filters.page - 1 },
       },
       () => {
-        fetchRepos();
+        dispatch(fetchRepos());
       }
     );
   };
@@ -58,21 +48,21 @@ function RepositoriesList() {
     <div className="repositories-container">
       <h2 className="repositories-header">Popular Repositories:</h2>
 
-      {repos === "loading" ? (
+      {reposData === "loading" ? (
         <div className="repositories-list-container">
           <span>Loading ...</span>
         </div>
-      ) : repos.length === 0 ? (
+      ) : reposData.length === 0 ? (
         <div className="repositories-list-container">
           <span>No repositories ...</span>
         </div>
       ) : (
         <div className="repositories-list-container">
-          {repos.map((repo, index) => (
-            <div className="single-repository-container" key={index}>
+          { reposData.map((repo,index) => 
+            <div className="single-repository-container" id="container" key={index} >
               <SingleRepository repo={repo} />
             </div>
-          ))}
+          )}
 
           <div className="repositoies-list-navigation-buttons-container">
             <button
