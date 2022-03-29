@@ -15,7 +15,7 @@ function App() {
       {!process.env.REACT_APP_GITHUB_TOKEN ? (
         <div className="app-container">
           Please insert your Github Token in the .env file and run the
-          application again
+          application again! Thanks!
         </div>
       ) : (
         <div className="app-container">
